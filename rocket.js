@@ -7,8 +7,6 @@ class Rocket {
 		this.position = createVector(x, y);
 		this.velocity = createVector();
 		this.acceleration = createVector();
-    //this.ADNA = new Dna();
-    //this.BDNA = new Dna();
 		this.dna = new Dna();
 		this.count = 0;
     this.alive = true;
@@ -36,7 +34,7 @@ class Rocket {
     this.fitness = dist(this.position.x,this.position.y,target.x,target.y);
     this.fitness = (1/this.fitness)*100;
     if(dist(this.position.x,this.position.y,target.x,target.y)<40){
-      this.fitness = 100;
+      this.fitness = this.fitness*1.5*(lifeSpan/count);
       this.alive = false;
     }
     if(this.fitness>topFitness){
@@ -51,7 +49,7 @@ class Rocket {
     var yBot = this.position.y-this.height/2;
     if(xRight < obstacle1.x+obstacle1.width/2 && xLeft > obstacle1.x-obstacle1.width/2 && yTop >obstacle1.y-obstacle1.height/2 && yBot<obstacle1.y+obstacle1.height/2){
       this.alive = false;
-      this.fitness =.001;
+      this.fitness = this.fitness/10
     }
 
     if(this.position.x >windowWidth || this.position.x<0 || this.position.y > windowHeight || this.position.y<0){

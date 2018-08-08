@@ -19,6 +19,7 @@ class Population{
 	}
 
   createGenePool(){
+    genePool = [];
     for(var i = 0; i<this.size; i++){
       var geneOccurrence = ceil(this.rockets[i].fitness * this.rockets[i].count);
       if(geneOccurrence<75){
@@ -34,6 +35,5 @@ class Population{
     count = 0;
     this.createGenePool();
     population = new Population(populationNumber);
-    //count = 0;
   }
 }
