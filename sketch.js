@@ -2,7 +2,10 @@
 var rocketHeight = 5;
 var rocketWidth = 20;
 var populationNumber = 100 ;
-var lifeSpan = 200;
+var lifeSpan = 400;
+var count = 0;
+var genePool = new Array();
+var topFitness = 0;
 //var population = new population(populationNumber);
 
 function setup() {
@@ -20,6 +23,6 @@ function draw() {
 	population.run();
 	obstacle1.update();
 	target.update();
-	//obstacle2.update();
-
+	count++;
+	print(topFitness);
 }
