@@ -16,6 +16,7 @@ class Population{
       this.rockets[i].update();
       this.rockets[i].show();
 		}
+		loadSaved = false;
 	}
 
   createGenePool(){
