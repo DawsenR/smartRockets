@@ -36,9 +36,9 @@ class Rocket {
 
   calcFitness(){
     this.fitness = dist(this.position.x,this.position.y,target.x,target.y);
-    this.fitness = (1/this.fitness)*600;
+    this.fitness = (1/this.fitness);
     if(dist(this.position.x,this.position.y,target.x,target.y)<40){
-      this.fitness = this.fitness*(lifeSpan/count);
+      this.fitness = this.fitness*(lifeSpan/count)*10;
       this.alive = false;
     }
     if(this.fitness>topFitness){
@@ -59,13 +59,13 @@ class Rocket {
     if(this.position.x >windowWidth || this.position.x<0 || this.position.y > windowHeight || this.position.y<0){
       this.alive = false;
 			if(this.position.y > windowHeight){
-				this.fitness = .01;
+				this.fitness = 0;
 			}
 			if(this.position.y< windowHeight){
-				this.fitness = 2;
+				this.fitness = 0;
 			}
 			if(this.position.x > windowWidth || this.position.x < 0){
-				this.fitness = .5;
+				this.fitness += 1;
 			}
     }
 
